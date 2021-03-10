@@ -9,8 +9,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-
+import sample.views.Calculadora;
 
 
 public class Main extends Application {
@@ -40,6 +39,7 @@ public class Main extends Application {
         mnbPrincipal.getMenus().addAll(menCompetencia1,menCompetencia2,menCerrar);
 
         mitCalcu = new MenuItem("Calculadora");
+        mitCalcu.setOnAction(event -> opcionesMenu(1));
         menCompetencia1.getItems().add(mitCalcu);
 
         mitSalir = new MenuItem("Salir");
@@ -49,6 +49,12 @@ public class Main extends Application {
         vBox.getChildren().add(mnbPrincipal);
 
         escena = new Scene(vBox,300,70);
+    }
+
+    private void opcionesMenu(int opc) {
+        switch(opc){
+            case 1: new Calculadora();
+        }
     }
 
     public static void main(String[] args) {
